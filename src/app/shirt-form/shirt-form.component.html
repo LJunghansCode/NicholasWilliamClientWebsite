@@ -1,0 +1,10 @@
+<section>
+  <article>
+    <form [formGroup]="shirtForm" (ngSubmit)="doCreate($event)">
+      <p><input type="text" formControlName="name"></p>
+      <p><input type="file" formControlName="imgUrl"></p>
+      <p><input type="text" formControlName="size"></p>
+      <input type="submit" value="Create shirt">
+    </form>
+  </article>
+</section>
