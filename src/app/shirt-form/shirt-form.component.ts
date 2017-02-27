@@ -15,9 +15,6 @@ export class ShirtFormComponent implements OnInit {
   });
 constructor(public fb: FormBuilder) {}
 doCreate(event) {
-  console.log(event);
-  console.log(this.shirtForm.value.name);
-  console.log(this.shirtForm.value);
 }
 
   ngOnInit() {
