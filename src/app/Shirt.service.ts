@@ -5,32 +5,40 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 
-import { Admin } from './admin';
+import { Shirt } from './shirt';
 
 @Injectable()
-export class AdminService {
-
+export class ShirtService {
+  public allshirtsurl = 'api/allShirts';
   constructor(private http: Http) {}
 
-  adminLogin(hash: string): Observable<Admin[]> {
+  newShirt(shirtForm: JSON): Observable<Shirt> {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
-    console.log(hash);
-    return this.http.post('api/adminLogin', {hash}, options)
-                    .map(this.validateLogin)
+    return this.http.post('api/newShirt', {shirtForm}, options)
+                    .map(this.processShirt)
                     .catch(this.handleError);
   }
-  private validateLogin(res: Response) {
+  allShirts(): Observable<Shirt[]> {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({ headers: headers });
+      return this.http.post(this.allshirtsurl, options)
+                       .map(this.allShirtsExtractor)
+                       .catch(this.handleError);
+  }
+
+  private processShirt(res: Response) {
+      const body = res.json();
+      return body.Shirt || {};
+  }
+  private allShirtsExtractor(res: Response) {
+      console.log(res);
       const body = res.json();
       console.log(body);
-      return body.admin || {};
+      console.log(body.shirts);
+      return body.shirts || {};
   }
-//   private processLogin(res: Response) {
-//       const body = this.validateLogin(res);
-//       console.log(body);
-//       console.log('from process');
-//       return body || {};
-// }
+
 
 private handleError (error: Response | any) {
     let errMsg: string;

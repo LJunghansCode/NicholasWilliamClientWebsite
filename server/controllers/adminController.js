@@ -6,12 +6,11 @@ const saltRounds = 10;
 
 module.exports = (function(){
 	return{
-        adminLogin: function (req, res) {
-            console.log(req.body);
-            admin.findOne({password: req.body}, function(err, data){
+        adminLogin: (req, res) => {
+            admin.findOne({password: req.body.hash}, function(err, data){
                 if(!data){
-                    var adminInstance = new admin(req.body);
-                    adminInstance.save(function(err){
+                    var adminInstance = new admin({password: req.body.hash});
+                      adminInstance.save(function(err){
                         if(!err){
                             res.json({admin:adminInstance});
                         }else{

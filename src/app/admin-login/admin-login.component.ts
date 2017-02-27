@@ -13,7 +13,10 @@ export class AdminLoginComponent implements OnInit {
   ngOnInit() {
   }
   adminLogin(hash: string) {
-    this.adminService.adminLogin(hash);
+    this.adminService.adminLogin(hash)
+                      .subscribe(
+                        admin => console.log('Returned This Admin' + admin)
+                      );
   }
 
 }

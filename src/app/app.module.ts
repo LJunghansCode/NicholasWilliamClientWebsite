@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AdminService } from './Admin.service';
+import { ShirtService } from './Shirt.service';
 
 import { AppComponent } from './app.component';
 import { ShirtFormComponent } from './shirt-form/shirt-form.component';
@@ -28,7 +29,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AdminService],
+  providers: [AdminService, ShirtService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

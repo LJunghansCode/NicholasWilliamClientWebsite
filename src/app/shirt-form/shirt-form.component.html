@@ -8,3 +8,22 @@
     </form>
   </article>
 </section>
+<section>
+  <table>
+    <thead>
+    <tr>
+    <th>Shirt Name</th>
+    <th>Image</th>
+    <th>Size</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shirt of shirts">
+        <td>{{shirt.name}}</td>
+        <td>{{shirt.imgUrl}}</td>
+        <td>{{shirt.size}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
