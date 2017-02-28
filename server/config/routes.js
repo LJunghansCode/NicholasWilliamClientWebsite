@@ -17,5 +17,8 @@ router.post('/allShirts', (req, res, next) => {
 router.post('/shirtImage', (req, res, next) => {
         shirtController.shirtImage(req, res);
 });
+router.post('/removeShirt', (req, res, next) => {
+        shirtController.removeShirt(req, res);
+});
 module.exports = router;
 

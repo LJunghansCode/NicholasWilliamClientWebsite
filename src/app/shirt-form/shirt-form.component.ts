@@ -21,6 +21,7 @@ constructor (public fb: FormBuilder, public shirtService: ShirtService) {}
 ngOnInit() {
      this.getShirts();
 }
+
   doCreate(event) {
       this.shirtService.newShirt(this.shirtForm.value)
                        .subscribe(

@@ -1,0 +1,12 @@
+html{
+    background-repeat:no-repeat;
+    background-image: url('./img/shirtPics/bg.jpg');
+    background-blend-mode: color-dodge;
+    color: white;
+}
+body{
+    color: white;
+}
+button{
+    background-color: grey; 
+}

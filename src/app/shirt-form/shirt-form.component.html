@@ -1,29 +1,10 @@
 <section>
   <article>
     <form [formGroup]="shirtForm" (ngSubmit)="doCreate($event)">
-      <label for="Name">Name:</label><p><input type="text" formControlName="name" required></p>
-      <label for="Size">Size:</label><p><input type="text" formControlName="size" required></p>
-      <input type="submit" value="Create shirt">
+      <label for="Name">Name:</label><input type="text" formControlName="name" required>
+      <label for="Size">Size:</label><input type="text" formControlName="size" required>
+      <button type="submit" value="Create shirt">Create Shirt</button>
       <app-shirt-upload></app-shirt-upload>
     </form>
   </article>
-</section>
-<section>
-  <table>
-    <thead>
-    <tr>
-    <th>Shirt Name</th>
-    <th>Image</th>
-    <th>Size</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let shirt of shirts">
-        <td>{{shirt.name}}</td>
-        <td>{{shirt.imgUrl}}</td>
-        <td>{{shirt.size}}</td>
-      </tr>
-      
-    </tbody>
-  </table>
 </section>

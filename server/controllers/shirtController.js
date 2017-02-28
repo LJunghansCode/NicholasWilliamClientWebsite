@@ -21,9 +21,15 @@ module.exports = (() => {
             if (err) {
             return res.end(err.toString());
             }
-        
             res.end('File is uploaded');
         });
+        },
+        removeShirt : (req, res) => {
+            shirt.findOneAndRemove({_id: req.body.id}, (err, data) => {
+                if(!err){
+                    res.json({remove:true});
+                }
+            });   
         } 
     };
 })();

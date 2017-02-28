@@ -12,8 +12,11 @@ import { AppComponent } from './app.component';
 import { ShirtFormComponent } from './shirt-form/shirt-form.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { ShirtUploadComponent } from './shirt-upload/shirt-upload.component';
+import { ShirtListComponent } from './shirt-list/shirt-list.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent},
   { path: 'newShirt', component: ShirtFormComponent },
   { path: 'Admin', component: AdminLoginComponent }
 ];
@@ -24,6 +27,8 @@ const routes: Routes = [
     ShirtFormComponent,
     AdminLoginComponent,
     ShirtUploadComponent,
+    ShirtListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
