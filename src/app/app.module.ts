@@ -7,9 +7,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AdminService } from './Admin.service';
 import { ShirtService } from './Shirt.service';
 
+
 import { AppComponent } from './app.component';
 import { ShirtFormComponent } from './shirt-form/shirt-form.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { ShirtUploadComponent } from './shirt-upload/shirt-upload.component';
 
 const routes: Routes = [
   { path: 'newShirt', component: ShirtFormComponent },
@@ -20,14 +22,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ShirtFormComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    ShirtUploadComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [AdminService, ShirtService],
   bootstrap: [AppComponent]

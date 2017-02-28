@@ -4,7 +4,10 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const multer = require("multer");
+const fs = require('fs');
+const DIR = './src/img/shirtPics';
+const upload = multer({dest: DIR});
 
 // Get our API routes
 require('./server/config/mongoose.js');

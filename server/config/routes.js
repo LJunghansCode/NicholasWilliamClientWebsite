@@ -12,8 +12,10 @@ router.post('/newShirt', (req, res, next) => {
         shirtController.newShirt(req, res);
 });
 router.post('/allShirts', (req, res, next) => {
-        console.log('here');
         shirtController.allShirts(req, res);
+});
+router.post('/shirtImage', (req, res, next) => {
+        shirtController.shirtImage(req, res);
 });
 module.exports = router;
 
