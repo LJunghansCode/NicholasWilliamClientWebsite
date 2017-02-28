@@ -7,21 +7,19 @@ const saltRounds = 10;
 module.exports = (function(){
 	return{
         adminLogin: (req, res) => {
-            admin.findOne({password: req.body.hash}, function(err, data){
-                if(!data){
-                    var adminInstance = new admin({password: req.body.hash});
-                      adminInstance.save(function(err){
-                        if(!err){
-                            res.json({admin:adminInstance});
-                        }else{
-                            console.log(err);
-                        }
-                    });
-                }else{
-                    res.json({admin:data});
+            admin.findOne({password: req.body.hash}, (err, data) => {
+                if(data){
+                  req.session.admin = {admin: data};
+                  res.json({admin:data});
                 }
             });
+        },
+        getAdmin: (req, res) => {
+            if(!req.session.admin){
+                res.json({failed:true});
+            }else{
+                res.json({loggedInAdmin:true});
+            }
         }
-
     };
 })();

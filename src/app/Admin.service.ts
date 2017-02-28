@@ -15,14 +15,12 @@ export class AdminService {
   adminLogin(hash: string): Observable<Admin[]> {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
-    console.log(hash);
     return this.http.post('api/adminLogin', {hash}, options)
                     .map(this.validateLogin)
                     .catch(this.handleError);
   }
   private validateLogin(res: Response) {
       const body = res.json();
-      console.log(body);
       return body.admin || {};
   }
 //   private processLogin(res: Response) {

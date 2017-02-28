@@ -26,23 +26,22 @@ export class ShirtService {
                        .map(this.allShirtsExtractor)
                        .catch(this.handleError);
   }
+
   deleteShirt (id: number): Observable<Shirt>  {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
-    console.log(id);
     return this.http.post('api/removeShirt', {id}, options)
                     .map(this.processShirt)
                     .catch(this.handleError);
   }
+
   private processShirt(res: Response) {
       const body = res.json();
       return body.Shirt || {};
   }
+
   private allShirtsExtractor(res: Response) {
-      console.log(res);
       const body = res.json();
-      console.log(body);
-      console.log(body.shirts);
       return body.shirts || {};
   }
 

@@ -11,6 +11,7 @@ import { Shirt } from './../shirt';
 })
 export class ShirtFormComponent implements OnInit {
   shirts: Shirt[];
+  success: string
   public shirtForm = this.fb.group({
     name: ['', Validators.required],
     imgUrl: ['', Validators.required],
@@ -25,7 +26,10 @@ ngOnInit() {
   doCreate(event) {
       this.shirtService.newShirt(this.shirtForm.value)
                        .subscribe(
-                         shirt => this.shirts.push(shirt)
+                           shirt => {this.shirts.push(shirt);
+                           this.success = 'Added!';
+                           this.shirtForm.reset();
+                           }
                        );
                        this.getShirts();
     }
