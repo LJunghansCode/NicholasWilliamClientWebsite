@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 			models_path = path.join(__dirname,"../models"),
 			reg = new RegExp( ".js$", "i" ),
 			dbURI = 'mongodb://localhost/NicholasWilliams';
+      
 mongoose.connect(dbURI);
 mongoose.connection.on( 'connected', function () {
   console.log( `Mongoose default connection open to ${ dbURI }` );

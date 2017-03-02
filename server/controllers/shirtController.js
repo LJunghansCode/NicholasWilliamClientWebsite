@@ -3,7 +3,7 @@ const multer = require('multer');
 var shirt = mongoose.model('Shirt');
 
 module.exports = (() => {
-	return{
+	return {
         newShirt : (req, res) => {
             const shirtToBeAdded = new shirt(req.body.shirtForm);
             shirtToBeAdded.save();

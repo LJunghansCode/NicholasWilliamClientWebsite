@@ -1,12 +1,47 @@
+* { margin: 0; padding: 0; }
 html{
     background-repeat:no-repeat;
     background-image: url('./img/shirtPics/bg.jpg');
     background-blend-mode: color-dodge;
-    color: white;
+    font-family: sans-serif;
 }
 body{
-    color: white;
+     color: black;
 }
 button{
     background-color: grey; 
 }
+table{
+    table-layout: auto;
+}
+.PageTitle{
+    text-align: center;
+    font-size: 52pt;
+}
+.topnav {
+padding-top: 5px;
+padding-left: 35px;
+}
+.topnav ul {
+    list-style-type: none;
+}
+.topnav ul li {
+    float: left;
+}
+.topnav ul li a {
+    background: grey;
+    color: white;
+    display: block;
+    font-family:
+    Arial, Helvetica, sans-serif;
+    padding: 10px 180px;
+    text-decoration: none;
+}
+.topnav ul li a:hover {
+    background: lightgray;
+    color: black;
+}
+.TitleContainer {
+    color: black;
+}
+

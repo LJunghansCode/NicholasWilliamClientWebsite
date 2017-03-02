@@ -16,7 +16,7 @@ module.exports = (function(){
         },
         getAdmin: (req, res) => {
             if(!req.session.admin){
-                res.json({failed:true});
+                res.json({loggedInAdmin:false});
             }else{
                 res.json({loggedInAdmin:true});
             }

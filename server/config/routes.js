@@ -1,27 +1,26 @@
 const express = require('express');
-const router = express.Router();
+const routes = express.Router();
 const adminController = require('./../controllers/adminController.js');
 const shirtController = require('./../controllers/shirtController.js');
 
-
 /* all of my API backend ROUTES */
-router.post('/adminLogin', (req, res, next) => {
+routes.post('/adminLogin', (req, res, next) => {
         adminController.adminLogin(req, res);
 });
-router.post('/newShirt', (req, res, next) => {
+routes.post('/newShirt', (req, res, next) => {
         shirtController.newShirt(req, res);
 });
-router.post('/allShirts', (req, res, next) => {
+routes.post('/allShirts', (req, res, next) => {
         shirtController.allShirts(req, res);
 });
-router.post('/shirtImage', (req, res, next) => {
+routes.post('/shirtImage', (req, res, next) => {
         shirtController.shirtImage(req, res);
 });
-router.post('/removeShirt', (req, res, next) => {
+routes.post('/removeShirt', (req, res, next) => {
         shirtController.removeShirt(req, res);
 });
-router.post('/getAdmin', (req, res, next) => {
+routes.get('/getAdmin', (req, res, next) => {
         shirtController.getAdmin(req, res);
 });
-module.exports = router;
+module.exports = routes;
 

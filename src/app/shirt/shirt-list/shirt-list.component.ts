@@ -18,7 +18,7 @@ export class ShirtListComponent implements OnInit {
   }
   getShirts(): void {
         this.shirtService.allShirts()
-                          .subscribe(
+                         .subscribe(
                             shirts => this.shirts = shirts
                           );
   }

@@ -11,6 +11,11 @@ export class AdminLoginComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
+    // this.adminCheck();
+  }
+  adminCheck() {
+    this.adminService.checkAdmin()
+                      .subscribe(admin => console.log(admin));
   }
   adminLogin(hash: string) {
     this.adminService.adminLogin(hash)
@@ -18,5 +23,4 @@ export class AdminLoginComponent implements OnInit {
                         admin => console.log('Returned This Admin' + admin)
                       );
   }
-
 }
