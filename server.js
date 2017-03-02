@@ -1,22 +1,23 @@
 const http = require('http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const multer = require("multer");
 const fs = require('fs');
+const fileUpload = require('express-fileupload');
 const express = require('express');
+const multer = require("multer");
 const DIR = './src/img/shirtPics';
 
-const upload = multer({dest: DIR});
 
 // Get our API routes
 require('./server/config/mongoose.js');
 const api = require('./server/config/routes.js');
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'dist')));
 
+
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use(multer({ dest: DIR}).single('photo'));
 app.use('/api', api);
 
 app.use(cors());

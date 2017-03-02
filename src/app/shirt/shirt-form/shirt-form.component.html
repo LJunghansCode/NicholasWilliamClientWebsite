@@ -1,9 +1,10 @@
 <section class="container">
-  <article>
-    <form [formGroup]="shirtForm" (ngSubmit)="doCreate($event)">
+  <article class='row'>
+    <form class="shirtForm" [formGroup]="shirtForm" (ngSubmit)="doCreate($event)">
       <h5>{{success}}</h5>
-      <label for="Name">Name:</label><input type="text" formControlName="name" required>
-      <label for="Size">Size:</label><input type="text" formControlName="size" required>
+      Name:<input type="text" formControlName="name" required>
+      Image: <input type="file" name="photo" formControlName="file" (change)="fileChangeEvent($event)">
+      Size: <input type="text" formControlName="size" required>
       <button type="submit" value="Create shirt">Create Shirt</button>
       <app-shirt-upload></app-shirt-upload>
     </form>

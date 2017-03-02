@@ -5,6 +5,7 @@ var shirt = mongoose.model('Shirt');
 module.exports = (() => {
 	return {
         newShirt : (req, res) => {
+            console.log(req.file);
             const shirtToBeAdded = new shirt(req.body.shirtForm);
             shirtToBeAdded.save();
             res.json({Shirt: req.body});
@@ -15,14 +16,6 @@ module.exports = (() => {
                     res.json({shirts: data});
                 }
             });
-        },
-        shirtImage : (req, res) => {
-          upload(req, res, function (err) {
-            if (err) {
-            return res.end(err.toString());
-            }
-            res.end('File is uploaded');
-        });
         },
         removeShirt : (req, res) => {
             shirt.findOneAndRemove({_id: req.body.id}, (err, data) => {

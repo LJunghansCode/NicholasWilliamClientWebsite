@@ -8,7 +8,7 @@ import { AdminService } from './admin/Admin.service';
 import { ShirtService } from './shirt/Shirt.service';
 import { CookieService } from './Cookie.service';
 import { Cookie } from 'ng2-cookies';
-
+import { ImageUploadModule } from 'angular2-image-upload';
 
 import { AppComponent } from './app.component';
 import { ShirtFormComponent } from './shirt/shirt-form/shirt-form.component';
