@@ -28,7 +28,12 @@ module.exports = (() => {
         shirtImage: (req, res) => {
             const fileToSee = req.files;
             const originalName = fileToSee[0].originalname;
-            const path = fileToSee[0].path;
+            const path = `../..${fileToSee[0].path.substr(3,fileToSee[0].path.length - 1)}`;
+            console.log(path)
+            console.log('--------------------------')
+            // ../../img/shirtPics/yoshi.jpg
+            // src/img/shirtPics/bob-omb.jpg
+            console.log(fileToSee[0].path)
             shirtPhoto.findOne({'name' : originalName}, (err, photo) => {
                 if(photo) {
                     res.json({nameTaken: true});
