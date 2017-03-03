@@ -8,15 +8,15 @@ import { AdminService } from './admin/Admin.service';
 import { ShirtService } from './shirt/Shirt.service';
 import { CookieService } from './Cookie.service';
 import { Cookie } from 'ng2-cookies';
-import { ImageUploadModule } from 'angular2-image-upload';
+
 
 import { AppComponent } from './app.component';
 import { ShirtFormComponent } from './shirt/shirt-form/shirt-form.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { ShirtUploadComponent } from './shirt/shirt-upload/shirt-upload.component';
 import { ShirtListComponent } from './shirt/shirt-list/shirt-list.component';
 import { HomeComponent } from './home/home.component';
 import { SplashPageComponent } from './splash/splash-page/splash-page.component';
+import { Ng2UploaderModule } from 'ng2-uploader';
 
 const routes: Routes = [
   { path: 'store', component: ShirtListComponent},
@@ -29,7 +29,6 @@ const routes: Routes = [
     AppComponent,
     ShirtFormComponent,
     AdminLoginComponent,
-    ShirtUploadComponent,
     ShirtListComponent,
     HomeComponent,
     SplashPageComponent,

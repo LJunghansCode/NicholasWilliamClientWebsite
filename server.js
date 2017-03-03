@@ -1,26 +1,24 @@
 const http = require('http');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const fs = require('fs');
-const fileUpload = require('express-fileupload');
 const express = require('express');
-const multer = require("multer");
 const DIR = './src/img/shirtPics';
-
+const multiparty = require('multiparty');
+const multer = require('multer');
 
 // Get our API routes
 require('./server/config/mongoose.js');
 const api = require('./server/config/routes.js');
 const app = express();
 
-
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(multer({ dest: DIR}).single('photo'));
 app.use('/api', api);
-
-app.use(cors());
 
 app.get('*', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'src/index.html'));

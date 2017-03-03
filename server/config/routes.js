@@ -3,8 +3,15 @@ const routes = express.Router();
 const adminController = require('./../controllers/adminController.js');
 const shirtController = require('./../controllers/shirtController.js');
 const multer = require('multer');
-const DIR = './src/img/shirtPics';
-const upload = multer({ dest: DIR });
+const crypto = require('crypto');
+var path = require('path');
+var storage = multer.diskStorage({
+  destination: './src/img/shirtPics/',
+  filename: function (req, file, cb) {
+      cb(null, file.originalname);
+  }
+});
+var upload = multer({ storage: storage }).array("uploads[]", 12);
 
 /* all of my API backend ROUTES */
 routes.post('/adminLogin', (req, res, next) => {
@@ -16,14 +23,17 @@ routes.post('/newShirt', (req, res, next) => {
 routes.post('/allShirts', (req, res, next) => {
         shirtController.allShirts(req, res);
 });
-routes.post('/shirtImage', upload.single('image'),  (req, res, next) => {
-        shirtController.shirtImage(req, res);
-});
 routes.post('/removeShirt', (req, res, next) => {
         shirtController.removeShirt(req, res);
 });
 routes.get('/getAdmin', (req, res, next) => {
         shirtController.getAdmin(req, res);
+});
+routes.get('/shirtUrls', (req, res, next ) => {
+        shirtController.allImages(req, res);
+});
+routes.post("/upload", upload, function(req, res) {
+    shirtController.shirtImage(req, res);
 });
 module.exports = routes;
 

@@ -1,11 +1,12 @@
-var mongoose = require('mongoose');
-const multer = require('multer');
-var shirt = mongoose.model('Shirt');
+const mongoose = require('mongoose');
+const shirt = mongoose.model('Shirt');
+const shirtPhoto = mongoose.model('ShirtPhoto');
+
+
 
 module.exports = (() => {
 	return {
         newShirt : (req, res) => {
-            console.log(req.file);
             const shirtToBeAdded = new shirt(req.body.shirtForm);
             shirtToBeAdded.save();
             res.json({Shirt: req.body});
@@ -23,6 +24,31 @@ module.exports = (() => {
                     res.json({remove:true});
                 }
             });   
-        } 
+        },
+        shirtImage: (req, res) => {
+            const fileToSee = req.files;
+            const originalName = fileToSee[0].originalname;
+            const path = fileToSee[0].path;
+            shirtPhoto.findOne({'name' : originalName}, (err, photo) => {
+                if(photo) {
+                    res.json({nameTaken: true});
+                } else {
+                    const photoUrlToBeAdded = new shirtPhoto({'name' : originalName,'localPath' : path });
+                    photoUrlToBeAdded.save();
+                    res.json({added: true});
+                }
+            });
+        },
+        allImages: (req, res) => {
+            shirtPhoto.find({}, (err, data) => {
+                console.log(data);
+                res.json({data: data});
+            });
+        }
     };
 })();
+
+
+
+
+

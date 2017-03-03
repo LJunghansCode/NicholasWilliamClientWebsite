@@ -10,7 +10,7 @@
     <tbody>
       <tr *ngFor="let shirt of shirts">
         <td>{{shirt.name}}</td>
-        <td>{{shirt.imgUrl}}</td>
+        <td> <img src="/{{shirt.image}}" alt="{{shirt.name}}" style="width:304px;height:228px;"></td>
         <td>{{shirt.size}}</td>
         <td><button (click)="deleteShirt(shirt._id)">Delete Shirt</button></td>
       </tr>
