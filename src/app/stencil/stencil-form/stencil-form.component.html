@@ -1,8 +1,10 @@
-<form>
-  <label for="stencilName">Upload New Stencil</label>
-  <input type="text" placeholder="Stencil name">
-  <label for="stencilName">Stencil Image</label>
-  <input type="file">
-  <label for=""></label>
-  <input type="submit">
-</form>
+<section class="container">
+  <article class='row'>
+   Image: <input type="file" (change)="fileChangeEvent($event)"> 
+    <form id="stencilForm" encType="multipart/form-data" [formGroup]="stencilForm" (ngSubmit)="doCreate($event);">
+      <h5>{{success}}</h5>
+      Name:<input type="text" formControlName="name" required>
+      <button type="submit">Create Stencil</button>
+    </form>
+  </article>
+</section>
