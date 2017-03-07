@@ -1,13 +1,10 @@
 <section class="container">
   <article class='row'>
-    Image: <input type="file" (change)="fileChangeEvent($event)"><button (click) = 'upload()'> Upload Photo First!</button>
+   Image: <input type="file" (change)="fileChangeEvent($event)"> 
     <form id="shirtForm" encType="multipart/form-data" [formGroup]="shirtForm" (ngSubmit)="doCreate($event);">
       <h5>{{success}}</h5>
       Name:<input type="text" formControlName="name" required>
       Size: <input type="text" formControlName="size" required>
-      <select name="imageList" formControlName="image">
-        <option *ngFor="let url of photoUrlList" value="{{url.localPath}}">{{url.localPath}}</option>
-      </select>
       <button type="submit" value="Create shirt" >Create Shirt</button>
     </form>
   </article>

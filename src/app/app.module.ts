@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'newShirt', component: ShirtFormComponent },
   { path: 'Admin', component: AdminLoginComponent }
 ];
-// modularize
+
 @NgModule({
   declarations: [
     AppComponent,

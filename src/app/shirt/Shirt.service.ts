@@ -13,7 +13,6 @@ export class ShirtService {
   constructor(private http: Http) {}
 
   newShirt(shirtForm: FormData): Observable<Shirt> {
-    console.log(shirtForm);
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
     return this.http.post('api/newShirt', {shirtForm}, options)
@@ -48,7 +47,6 @@ export class ShirtService {
   }
  private processData(res: Response) {
       const body = res.json();
-      console.log(body.data);
       return body.data || {};
   }
   private processShirt(res: Response) {

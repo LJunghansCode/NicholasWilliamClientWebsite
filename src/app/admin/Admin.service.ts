@@ -21,22 +21,16 @@ export class AdminService {
   }
   private processData(res: Response) {
       const body = res.json();
-      return body.admin || {};
+      return body || {};
   }
 
-     checkAdmin(): Observable<Admin> {
+checkAdmin(): Observable<Admin> {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
     return this.http.get('api/getAdmin')
                     .map(this.processData)
                     .catch(this.handleError);
   }
-//   private processLogin(res: Response) {
-//       const body = this.validateLogin(res);
-//       console.log(body);
-//       console.log('from process');
-//       return body || {};
-// }
 
 private handleError (error: Response | any) {
     let errMsg: string;

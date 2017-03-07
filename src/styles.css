@@ -1,47 +1,65 @@
 * { margin: 0; padding: 0; }
 html{
-    background-repeat:no-repeat;
     background-image: url('./img/shirtPics/bg.jpg');
     background-blend-mode: color-dodge;
-    font-family: sans-serif;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    position: relative;
+    min-height: 100%;
 }
 body{
      color: black;
 }
-button{
-    background-color: grey; 
-}
-table{
-    table-layout: auto;
-}
 .PageTitle{
-    text-align: center;
-    font-size: 52pt;
+    display: inline-block;
+    text-align: left;
+    font-size: 38pt;
 }
 .topnav {
-padding-top: 5px;
-padding-left: 35px;
+    display: inline-block;
 }
-.topnav ul {
-    list-style-type: none;
-}
-.topnav ul li {
-    float: left;
-}
-.topnav ul li a {
-    background: grey;
-    color: white;
-    display: block;
+.topnav a {
+    color: black;
+    float: right;
     font-family:
     Arial, Helvetica, sans-serif;
-    padding: 10px 180px;
     text-decoration: none;
 }
-.topnav ul li a:hover {
-    background: lightgray;
-    color: black;
+.topnav a:hover {
+    padding: 2px;
+    background: black;
+    color: white;
 }
 .TitleContainer {
     color: black;
 }
-
+.storeContainer {
+    margin-top: 20px;
+}
+.footerContainer {
+    background-color: black;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    overflow:hidden;
+}
+.shirtContainer {
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+    padding: 2px;
+}
+.shirtContainer h3{
+    opacity: .7;
+    text-align: center;
+}
+.shirtContainer p{
+    position: relative;
+    opacity: .7;
+    text-align: center;
+}
+.shirtContainer button {
+    text-align: center;
+    margin-left: 38px;
+}

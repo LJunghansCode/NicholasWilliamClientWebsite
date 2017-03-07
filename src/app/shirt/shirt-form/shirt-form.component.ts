@@ -10,7 +10,7 @@ import { Shirt } from './../shirt';
   templateUrl: './shirt-form.component.html',
   styleUrls: ['./shirt-form.component.css']
 })
-export class ShirtFormComponent implements OnInit{
+export class ShirtFormComponent implements OnInit {
   shirts: Shirt[];
   success: string;
   file: File;
@@ -32,7 +32,6 @@ getShirtUrls(): void {
         this.shirtService.getPhotoUrls()
                          .subscribe(
                             data => {
-                                console.log(data);
                                 this.photoUrlList = data;
                             }
                           );
@@ -43,11 +42,11 @@ uploadFileToServer(fileToUpload: File) {
 fileChangeEvent(fileInput: any) {
         this.filesToUpload = <File[]> fileInput.target.files;
 }
-upload() {
+upload(callback) {
         this.makeFileRequest('http://localhost:4200/api/upload', [], this.filesToUpload).then((result) => {
-            console.log (result);
+            callback(result);
         }, (error) => {
-            console.error(error);
+            console.log(error);
         });
     }
 makeFileRequest(url: string, params: Array<string>, files: File[]) {
@@ -71,13 +70,21 @@ makeFileRequest(url: string, params: Array<string>, files: File[]) {
         });
     }
   doCreate(event) {
+      this.upload((data) => {
+          const returnedImageFromUpload = data;
+          this.shirtForm.value.image = returnedImageFromUpload.added;
+          console.log(this.shirtForm.value);
+      });
+      setTimeout(() => {
+      console.log(this.shirtForm.value);
       this.shirtService.newShirt(this.shirtForm.value)
                        .subscribe(
                            shirt => {
                            this.success = 'Added!';
                            this.shirtForm.reset();
                            }
-                       );
+                       ); }, 500);
+
                        this.getShirts();
     }
   getShirts(): void {

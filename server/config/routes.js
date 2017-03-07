@@ -3,11 +3,10 @@ const routes = express.Router();
 const adminController = require('./../controllers/adminController.js');
 const shirtController = require('./../controllers/shirtController.js');
 const multer = require('multer');
-const crypto = require('crypto');
 var path = require('path');
 var storage = multer.diskStorage({
   destination: './src/img/shirtPics/',
-  filename: function (req, file, cb) {
+  filename: function (req, file, cb) {   
       cb(null, file.originalname);
   }
 });
@@ -27,7 +26,7 @@ routes.post('/removeShirt', (req, res, next) => {
         shirtController.removeShirt(req, res);
 });
 routes.get('/getAdmin', (req, res, next) => {
-        shirtController.getAdmin(req, res);
+        adminController.getAdmin(req, res);
 });
 routes.get('/shirtUrls', (req, res, next ) => {
         shirtController.allImages(req, res);

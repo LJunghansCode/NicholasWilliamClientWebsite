@@ -5,6 +5,8 @@ const express = require('express');
 const DIR = './src/img/shirtPics';
 const multiparty = require('multiparty');
 const multer = require('multer');
+const session = require('express-session');
+
 
 // Get our API routes
 require('./server/config/mongoose.js');
@@ -16,6 +18,13 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+
+app.use(session({
+	secret:'secretLuca',
+	resave: false,
+	saveUninitialized : true,
+}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/api', api);
