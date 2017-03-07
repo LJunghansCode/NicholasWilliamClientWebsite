@@ -17,11 +17,14 @@ import { ShirtListComponent } from './shirt/shirt-list/shirt-list.component';
 import { HomeComponent } from './home/home.component';
 import { SplashPageComponent } from './splash/splash-page/splash-page.component';
 import { Ng2UploaderModule } from 'ng2-uploader';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { path: 'store', component: ShirtListComponent},
   { path: 'newShirt', component: ShirtFormComponent },
-  { path: 'Admin', component: AdminLoginComponent }
+  { path: 'Admin', component: AdminLoginComponent },
+  { path: '', redirectTo: 'store', pathMatch: 'full' },
+  { path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({
@@ -32,6 +35,7 @@ const routes: Routes = [
     ShirtListComponent,
     HomeComponent,
     SplashPageComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
