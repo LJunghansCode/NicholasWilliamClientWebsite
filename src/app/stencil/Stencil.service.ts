@@ -8,8 +8,8 @@ import { Stencil } from './stencil';
 
 @Injectable()
 export class StencilService {
-    public allStencilUrls = 'api/allStencils';
-    constructor(private http: Http){}
+    public allStencilsRoute = 'api/allStencils';
+    constructor(private http: Http) {}
 
 
     newStencil(stencilForm: FormData): Observable<Stencil> {
@@ -19,9 +19,20 @@ export class StencilService {
                     .map(this.processStencil)
                     .catch(this.handleError);
     }
+    allStencils(): Observable<Stencil[]> {
+        const headers = new Headers({'Content-Type': 'application/json'});
+        const options = new RequestOptions({headers: headers});
+            return this.http.post(this.allStencilsRoute, options)
+                            .map(this.allStencilExtractor)
+                            .catch(this.handleError);
+    }
     private processStencil(res: Response) {
         const body = res.json();
         return body.data || {};
+    }
+    private allStencilExtractor(res: Response) {
+        const body = res.json();
+        return body.stencils || {};
     }
     private handleError(error: Response | any) {
         let errMsg: string;

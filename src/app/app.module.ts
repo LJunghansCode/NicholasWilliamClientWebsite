@@ -20,11 +20,13 @@ import { HomeComponent } from './home/home.component';
 import { SplashPageComponent } from './splash/splash-page/splash-page.component';
 import { Ng2UploaderModule } from 'ng2-uploader';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { StencilGalleryComponent } from './stencil/stencil-gallery/stencil-gallery.component';
 
 const routes: Routes = [
   { path: 'store', component: ShirtListComponent},
   { path: 'newShirt', component: ShirtFormComponent },
   { path: 'newStencil', component: StencilFormComponent },
+  { path: 'stencilGallery',component: StencilGalleryComponent },
   { path: 'Admin', component: AdminLoginComponent },
   { path: '', redirectTo: 'store', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent }
@@ -35,6 +37,7 @@ const routes: Routes = [
     AppComponent,
     ShirtFormComponent,
     StencilFormComponent,
+    StencilGalleryComponent,
     AdminLoginComponent,
     ShirtListComponent,
     HomeComponent,

@@ -34,6 +34,9 @@ routes.post("/newStencil", (req, res, next) => {
 routes.post('/allShirts', (req, res, next) => {
         shirtController.allShirts(req, res);
 });
+routes.post('/allStencils', (req, res, next) => {
+        stencilController.allStencils(req, res);
+});
 routes.post('/removeShirt', (req, res, next) => {
         shirtController.removeShirt(req, res);
 });

@@ -22,6 +22,13 @@ module.exports = (function(){
                     res.json({added: path});
                 }
             });
+        },
+        allStencils: (req, res) => {
+            stencil.find({}, (err, data) => {
+                if(data){
+                    res.json({stencils: data});
+                }
+            });
         } 
 
     };
