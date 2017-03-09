@@ -18,6 +18,14 @@ module.exports = (() => {
                 }
             });
         },
+        getOneShirt : (req, res) => {
+            shirt.findOne({'_id': req.body.id}, (err, data) => {
+                if(!err){
+                    console.log(data);
+                    res.json({data: data});
+                }
+            });
+        },  
         removeShirt : (req, res) => {
             shirt.findOneAndRemove({_id: req.body.id}, (err, data) => {
                 if(!err){
@@ -41,7 +49,6 @@ module.exports = (() => {
         },
         allImages: (req, res) => {
             shirtPhoto.find({}, (err, data) => {
-                console.log(data);
                 res.json({data: data});
             });
         }

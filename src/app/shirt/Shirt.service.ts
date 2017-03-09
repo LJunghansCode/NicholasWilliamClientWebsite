@@ -40,11 +40,14 @@ export class ShirtService {
                     .map(this.processShirt)
                     .catch(this.handleError);
   }
-  getPhotoUrls (): Observable<JSON[]> {
-    return this.http.get('api/shirtUrls')
-                    .map(this.processData)
-                    .catch(this.handleError);
+
+  oneShirt(id: number): Observable<Shirt> {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({ headers: headers });
+    return this.http.post('api/oneShirt', {id}, options)
+                    .map(this.processData);
   }
+
  private processData(res: Response) {
       const body = res.json();
       return body.data || {};

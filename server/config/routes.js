@@ -28,11 +28,14 @@ routes.post('/adminLogin', (req, res, next) => {
 routes.post('/newShirt', (req, res, next) => {
         shirtController.newShirt(req, res);
 });
-routes.post("/newStencil", (req, res, next) => {
+routes.post('/newStencil', (req, res, next) => {
         stencilController.newStencil(req, res);
-})
+});
 routes.post('/allShirts', (req, res, next) => {
         shirtController.allShirts(req, res);
+});
+routes.post('/oneShirt', (req, res, next) => {
+        shirtController.getOneShirt(req, res);
 });
 routes.post('/allStencils', (req, res, next) => {
         stencilController.allStencils(req, res);
@@ -42,9 +45,6 @@ routes.post('/removeShirt', (req, res, next) => {
 });
 routes.get('/getAdmin', (req, res, next) => {
         adminController.getAdmin(req, res);
-});
-routes.get('/shirtUrls', (req, res, next ) => {
-        shirtController.allImages(req, res);
 });
 routes.post("/upload", upload, function(req, res) {
     shirtController.shirtImage(req, res);

@@ -41,9 +41,59 @@ body{
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 50px;
+    height: 100px;
     width: 100%;
     overflow:hidden;
+}
+.footerContainer article ul {
+    list-style-type: none;
+    text-align: left;
+    margin-left: 35%;
+    font-size: 10pt;
+    margin-top: 14px;
+    display: inline-block;
+}
+.footerContainer article ul a {
+    color: white;
+    text-decoration: none;
+}
+.footerContainer article ul li {
+    display: inline-block;
+    margin-left: 8px; 
+}
+.footerContainer article li a::before,
+.footerContainer article li a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.footerContainer article li a::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.footerContainer article li a::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.footerContainer article li a:hover::before,
+.footerContainer article li a:hover::after,
+.footerContainer article li a:focus::before,
+.footerContainer article li a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
 }
 .shirtContainer {
     margin-bottom: 20px;
@@ -63,4 +113,55 @@ body{
 .shirtContainer button {
     text-align: center;
     margin-left: 38px;
+}
+.TitleContainer nav ul {
+    list-style-type: none;
+    text-align: left;
+    margin-left: 35%;
+    font-size: 10pt;
+    margin-top: 14px;
+    display: inline-block;
+}
+.TitleContainer nav ul li a {
+    color: black;
+    font-size: 13pt;
+    text-decoration: none;
+}
+.TitleContainer nav ul li {
+    display: inline-block;
+    margin-left: 8px; 
+}
+.TitleContainer nav li a::before,
+.TitleContainer nav li a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.TitleContainer nav li a::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.TitleContainer nav li a::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.TitleContainer nav li a:hover::before,
+.TitleContainer nav li a:hover::after,
+.TitleContainer nav li a:focus::before,
+.TitleContainer nav li a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShirtService } from './../Shirt.service';
 import { Shirt } from './../shirt';
 import { AdminService } from './../../admin/Admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shirt-list',
@@ -13,7 +14,7 @@ export class ShirtListComponent implements OnInit {
   shirts: Shirt[];
   private admin = false;
 
-  constructor(public shirtService: ShirtService, public adminService: AdminService) { }
+  constructor(public shirtService: ShirtService, public adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
      this.getShirts();
@@ -40,6 +41,9 @@ export class ShirtListComponent implements OnInit {
                          }
                        }
                      );
+  }
+  getOneShirt(_id: number) {
+    this.router.navigate(['Shirt', _id]);
   }
 
 }

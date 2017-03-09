@@ -25,17 +25,7 @@ constructor (public fb: FormBuilder, public shirtService: ShirtService) {
     this.filesToUpload = [];
 }
 ngOnInit() {
-    this.getShirtUrls();
 }
-getShirtUrls(): void {
-    console.log('here');
-        this.shirtService.getPhotoUrls()
-                         .subscribe(
-                            data => {
-                                this.photoUrlList = data;
-                            }
-                          );
-  }
 uploadFileToServer(fileToUpload: File) {
     this.shirtService.imageUpload(fileToUpload);
 }
@@ -73,17 +63,14 @@ makeFileRequest(url: string, params: Array<string>, files: File[]) {
       this.upload((data) => {
           const returnedImageFromUpload = data;
           this.shirtForm.value.image = returnedImageFromUpload.added;
-          console.log(this.shirtForm.value);
-      });
-      setTimeout(() => {
-      console.log(this.shirtForm.value);
-      this.shirtService.newShirt(this.shirtForm.value)
-                       .subscribe(
-                           shirt => {
-                           this.success = 'Added!';
-                           this.shirtForm.reset();
+          this.shirtService.newShirt(this.shirtForm.value)
+                           .subscribe(
+                            shirt => {
+                            this.success = 'Added!';
+                            this.shirtForm.reset();
                            }
-                       ); }, 500);
+                       );
+      });
 
                        this.getShirts();
     }
