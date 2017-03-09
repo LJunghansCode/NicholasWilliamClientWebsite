@@ -61,8 +61,8 @@ body{
     display: inline-block;
     margin-left: 8px; 
 }
-.footerContainer article li a::before,
-.footerContainer article li a::after {
+.bracketAnimList li a::before,
+.bracketAnimList li a::after {
 	display: inline-block;
 	opacity: 0;
 	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
@@ -70,7 +70,7 @@ body{
 	transition: transform 0.3s, opacity 0.2s;
 }
 
-.footerContainer article li a::before {
+.bracketAnimList li a::before {
 	margin-right: 10px;
 	content: '[';
 	-webkit-transform: translateX(20px);
@@ -78,7 +78,7 @@ body{
 	transform: translateX(20px);
 }
 
-.footerContainer article li a::after {
+.bracketAnimList li a::after {
 	margin-left: 10px;
 	content: ']';
 	-webkit-transform: translateX(-20px);
@@ -86,10 +86,10 @@ body{
 	transform: translateX(-20px);
 }
 
-.footerContainer article li a:hover::before,
-.footerContainer article li a:hover::after,
-.footerContainer article li a:focus::before,
-.footerContainer article li a:focus::after {
+.bracketAnimList li a:hover::before,
+.bracketAnimList li a:hover::after,
+.bracketAnimList li a:focus::before,
+.bracketAnimList li a:focus::after {
 	opacity: 1;
 	-webkit-transform: translateX(0px);
 	-moz-transform: translateX(0px);
@@ -130,38 +130,4 @@ body{
 .TitleContainer nav ul li {
     display: inline-block;
     margin-left: 8px; 
-}
-.TitleContainer nav li a::before,
-.TitleContainer nav li a::after {
-	display: inline-block;
-	opacity: 0;
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
-	transition: transform 0.3s, opacity 0.2s;
-}
-
-.TitleContainer nav li a::before {
-	margin-right: 10px;
-	content: '[';
-	-webkit-transform: translateX(20px);
-	-moz-transform: translateX(20px);
-	transform: translateX(20px);
-}
-
-.TitleContainer nav li a::after {
-	margin-left: 10px;
-	content: ']';
-	-webkit-transform: translateX(-20px);
-	-moz-transform: translateX(-20px);
-	transform: translateX(-20px);
-}
-
-.TitleContainer nav li a:hover::before,
-.TitleContainer nav li a:hover::after,
-.TitleContainer nav li a:focus::before,
-.TitleContainer nav li a:focus::after {
-	opacity: 1;
-	-webkit-transform: translateX(0px);
-	-moz-transform: translateX(0px);
-	transform: translateX(0px);
 }
