@@ -15,7 +15,6 @@ export class StencilGalleryComponent implements OnInit {
 
   ngOnInit() {
     this.getStencils();
-    console.log(this.stencils);
     this.getAdmin();
   }
   getStencils(): void {
@@ -28,10 +27,10 @@ export class StencilGalleryComponent implements OnInit {
     this.adminService.checkAdmin()
                      .subscribe(
                        data => {
-                         if(data) {
+                         if (data) {
                            this.admin = true;
                          }
                        }
-                     );
+                     ).unsubscribe();
   }
 }

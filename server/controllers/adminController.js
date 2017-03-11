@@ -19,10 +19,10 @@ module.exports = (function(){
         },
         getAdmin: (req, res) => {
             if(!req.session.admin){
-                return;
+                res.json({password: undefined});
             }else{
                admin.findOne({password: req.session.admin.password}, (err, data) => {
-                    res.json({loggedInAdmin: data.password});
+                    res.json({password: data.password});
                  });
             }
         }

@@ -2,8 +2,8 @@
 
   <section class="storeContainer row u-full-width">
   <article class="shirtContainer" *ngFor="let shirt of shirts" >
-        <img src="/{{shirt.image}}" style="width:240px;height:160px;" (click)="getOneShirt(shirt._id)" alt="{{shirt.name}} image cant be found, sorry">
-        <h3>{{shirt.name}}</h3>
+         <img class="shirtlistImage" src="/{{shirt.image}}" style="width:240px;height:160px;" (click)="getOneShirt(shirt._id)" alt="{{shirt.name}} image cant be found, sorry">
+         <h3>{{shirt.name}}</h3>
          <p>{{shirt.size}}</p>
          <button *ngIf="admin" (click)="deleteShirt(shirt._id)">Delete Shirt</button>
   </article>

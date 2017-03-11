@@ -8,18 +8,26 @@ import {Router, Routes} from '@angular/router';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
+  loggedIn: boolean;
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
-    this.adminCheck();
+    this.adminCheck((data) => {
+      if (!data.password ) {
+        this.redirectStore();
+      } else {
+        console.log(data);
+      }
+    });
+
   }
 
-  adminCheck() {
+  adminCheck(callback) {
     this.adminService.checkAdmin()
-                      .subscribe(admin => {
+                     .subscribe(admin => {
                           if (admin) {
-                            console.log(admin);
-                          }
+                            callback(admin);
+                           }
                     }, error => {
                       console.log(error);
                       });
@@ -32,6 +40,7 @@ export class AdminLoginComponent implements OnInit {
                       );
   }
   redirectStore() {
+    console.log('here');
     this.router.navigate(['/store']);
   }
 }

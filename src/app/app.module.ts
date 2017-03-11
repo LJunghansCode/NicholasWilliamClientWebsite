@@ -10,7 +10,6 @@ import { StencilService } from './stencil/Stencil.service';
 import { CookieService } from './Cookie.service';
 import { Cookie } from 'ng2-cookies';
 
-
 import { AppComponent } from './app.component';
 import { ShirtFormComponent } from './shirt/shirt-form/shirt-form.component';
 import { StencilFormComponent } from './stencil/stencil-form/stencil-form.component';
@@ -22,9 +21,11 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ShirtSingleComponent } from './shirt-single/shirt-single.component';
 import { StencilGalleryComponent } from './stencil/stencil-gallery/stencil-gallery.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 const routes: Routes = [
   { path: 'store', component: ShirtListComponent},
+  { path: 'contact', component: ContactFormComponent},
   { path: 'newShirt', component: ShirtFormComponent },
   { path: 'Shirt/:id', component: ShirtSingleComponent },
   { path: 'newStencil', component: StencilFormComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
     HomeComponent,
     SplashPageComponent,
     PagenotfoundComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,

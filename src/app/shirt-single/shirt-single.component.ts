@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { Shirt } from '../shirt/shirt';
 import { ShirtService } from '../shirt/Shirt.service';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-shirt-single',

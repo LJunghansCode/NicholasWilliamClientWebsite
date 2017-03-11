@@ -9,5 +9,4 @@ export class HomeComponent {
   public hide: boolean;
   constructor() { }
 
-
 }

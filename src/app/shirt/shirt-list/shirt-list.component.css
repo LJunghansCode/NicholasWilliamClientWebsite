@@ -1,0 +1,12 @@
+.storeContainer article img {
+	-webkit-filter: opacity(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.storeContainer article:hover img {
+	-webkit-filter: opacity(.7);
+	filter: opacity(.7);
+}
+.storeContainer {
+    margin-top: 20px;
+}

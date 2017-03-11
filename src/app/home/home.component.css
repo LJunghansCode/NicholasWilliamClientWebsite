@@ -1,4 +1,30 @@
 .seperatingRow {
     background-color: black;
-    height: 20px;
+    height: 5px;
+}
+.PageTitle{
+    text-align: center;
+    font-size: 65pt;
+    font-weight: bolder;
+
+}
+.TitleContainer {
+    color: black;
+    text-align: center;
+}
+.TitleContainer nav ul {
+    list-style-type: none;
+    font-size: 10pt;
+}
+.TitleContainer nav ul li a {
+    color: black;
+    font-size: 13pt;
+    font-weight: lighter;
+    text-decoration: none;
+}
+.TitleContainer nav ul li {
+    display: inline;
+}
+.mainNav {
+    text-align: center;
 }

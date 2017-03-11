@@ -21,10 +21,11 @@ export class AdminService {
   }
   private processData(res: Response) {
       const body = res.json();
+      console.log(body);
       return body || {};
   }
 
-checkAdmin(): Observable<Admin> {
+checkAdmin(): Observable<JSON> {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
     return this.http.get('api/getAdmin')
