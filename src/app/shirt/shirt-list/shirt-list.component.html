@@ -1,11 +1,19 @@
 <main class="container">
 
   <section class="storeContainer row u-full-width">
-  <article class="shirtContainer" *ngFor="let shirt of shirts" >
-         <img class="shirtlistImage" src="/{{shirt.image}}" style="width:240px;height:160px;" (click)="getOneShirt(shirt._id)" alt="{{shirt.name}} image cant be found, sorry">
-         <h3>{{shirt.name}}</h3>
-         <p>{{shirt.size}}</p>
-         <button *ngIf="admin" (click)="deleteShirt(shirt._id)">Delete Shirt</button>
+  <article class="card effect__click" *ngFor="let shirt of shirts; let i = index" (click)="cardFlip(i)" >
+			<div class="card__front">
+				<img class="flip-container" src="/{{shirt.image}}"  alt="{{shirt.name}} image cant be found, sorry">
+				<p>Size: {{shirt.size}}</p>
+			</div>
+			<div class="card__back">
+				<h3>{{shirt.name}}</h3>
+         		<p>Size: {{shirt.size}}</p>
+				 <h6>$100</h6>
+				<button>Purchase</button>
+         		<button *ngIf="admin" (click)="deleteShirt(shirt._id)">Delete Shirt</button>
+			</div>	 
   </article>
   </section>
 </main>
+

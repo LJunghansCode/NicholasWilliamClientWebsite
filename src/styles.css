@@ -1,22 +1,24 @@
 * { margin: 0; padding: 0; }
 html{
-    background-image: url('./img/shirtPics/bg.jpg');
-    background-blend-mode: color-dodge;
     font-family: "Trebuchet MS", Arial, sans-serif;
     position: relative;
     min-height: 100%;
 }
 body{
+        background: #ffffff; /* Old browsers */
+    background: -webkit-linear-gradient(#ffffff 0%, #d3eefb 100%);
+    background: -moz-linear-gradient(#ffffff 0%, #d3eefb 100%);
+    background: -o-linear-gradient(#ffffff 0%, #d3eefb 100%);
+    background: linear-gradient(#ffffff 0%, #d3eefb 100%);  
+    background-blend-mode: color-dodge;
      color: black;
+}
+@media all and (max-width: 480px){
+
 }
 .footerContainer {
     background-color: black;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 65px;
     width: 100%;
-    overflow:hidden;
 }
 .footerLogo{
     box-shadow: white;
@@ -70,24 +72,3 @@ body{
 	-moz-transform: translateX(0px);
 	transform: translateX(0px);
 }
-.shirtContainer {
-    margin-bottom: 20px;
-    display: inline-block;
-    position: relative;
-    padding: 2px;
-}
-.shirtContainer h3{
-    opacity: .7;
-    text-align: center;
-}
-.shirtContainer p{
-    position: relative;
-    opacity: .7;
-    text-align: center;
-}
-.shirtContainer button {
-    text-align: center;
-    margin-left: 38px;
-}
-
-

@@ -20,6 +20,13 @@ export class ShirtListComponent implements OnInit {
      this.getShirts();
      this.getAdmin();
   }
+  cardFlip(index) {
+      const cards = document.querySelectorAll(".card.effect__click");
+        const card = cards[index];
+        const c = card.classList;
+          c.contains("flipped") === true ? c.remove("flipped") : c.add("flipped");
+    }
+
   getShirts(): void {
         this.shirtService.allShirts()
                          .subscribe(

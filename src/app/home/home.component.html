@@ -1,6 +1,6 @@
 <main class="container">
-<section class="row TitleContainer">
-    <h4 class="PageTitle one-whole column"> Nicholas William </h4>
+<header class="row TitleContainer">
+<img src="./../../img/nwlogo.jpg" alt="Nicholas William">
 <nav class="one-whole column mainNav">
     <ul class="bracketAnimList">
         <li> <a routerLink="store">Store Home</a> </li> 
@@ -8,6 +8,15 @@
     </ul>
 </nav>
 <div class="one-whole column seperatingRow"></div>
-</section> 
+</header> 
 <router-outlet></router-outlet>
 </main>
+<footer class="footerContainer row">
+  <article class="one-half column">
+    <ul class="bracketAnimList">
+     <a href="/store"> <img src="./img/nwlogo.jpg" alt="mainLogo" style="width: 100px; height: 25px;" > </a>
+      <li><a href="/store">Store Home</a></li>
+      <li><a href="/contact">Contact the artist</a></li>
+    </ul>
+  </article>
+</footer>
