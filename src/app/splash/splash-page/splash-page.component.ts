@@ -6,7 +6,9 @@ import { AppComponent } from './../../app.component';
   templateUrl: './splash-page.component.html',
   styleUrls: ['./splash-page.component.css']
 })
-export class SplashPageComponent {
+export class SplashPageComponent implements OnInit  {
   constructor() { }
-    
+  ngOnInit() {
+
+  }
 }
