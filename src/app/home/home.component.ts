@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent {
   public hide: boolean;
+  public adminLoginToggle: boolean;
   constructor() { }
-
+  toggleLoginBox() {
+    if (this.adminLoginToggle === false) {
+          this.adminLoginToggle = true;
+    }else {
+          this.adminLoginToggle = false;
+    }
+  }
 }

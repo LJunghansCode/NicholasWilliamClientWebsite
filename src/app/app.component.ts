@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from './Cookie.service';
-import {Routes, Router } from '@angular/router';
-
-
+import { Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',

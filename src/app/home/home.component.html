@@ -1,4 +1,4 @@
-<main class="container">
+<main class=" homeWrapper container">
 <header class="row TitleContainer">
 <img src="./../../img/nwlogo.jpg" alt="Nicholas William">
 <nav class="one-whole column mainNav">
@@ -17,6 +17,8 @@
      <a href="/store"> <img src="./img/nwlogo.jpg" alt="mainLogo" style="width: 100px; height: 25px;" > </a>
       <li><a href="/store">Store Home</a></li>
       <li><a href="/contact">Contact the artist</a></li>
+      <li><a (click)="toggleLoginBox()">Admin</a></li>
     </ul>
   </article>
+  <app-admin-login *ngIf="adminLoginToggle"></app-admin-login>
 </footer>

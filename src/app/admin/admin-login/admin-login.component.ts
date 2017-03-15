@@ -13,7 +13,7 @@ export class AdminLoginComponent implements OnInit {
 
   ngOnInit() {
     this.adminCheck((data) => {
-      if (!data.password ) {
+      if (!data.password) {
         this.redirectStore();
       } else {
         console.log(data);
@@ -36,11 +36,19 @@ export class AdminLoginComponent implements OnInit {
   adminLogin(hash: string) {
     this.adminService.adminLogin(hash)
                       .subscribe(
-                        admin => console.log('Returned This Admin' + admin)
+                      (admin) => {
+                        if (admin.password) {
+                        this.router.navigate(['/Admin']);
+                        }else {
+                          this.redirectStore();
+                        }
+                      },
+                      (error) => {
+                        console.log('something went wrong');
+                      }
                       );
   }
   redirectStore() {
-    console.log('here');
     this.router.navigate(['/store']);
-  }
+ }
 }

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class ShirtListComponent implements OnInit {
   shirts: Shirt[];
-  private admin = false;
+  public admin = false;
 
   constructor(public shirtService: ShirtService, public adminService: AdminService, private router: Router) { }
 
@@ -21,12 +21,11 @@ export class ShirtListComponent implements OnInit {
      this.getAdmin();
   }
   cardFlip(index) {
-      const cards = document.querySelectorAll(".card.effect__click");
+        const cards = document.querySelectorAll('.card.effect__click');
         const card = cards[index];
         const c = card.classList;
-          c.contains("flipped") === true ? c.remove("flipped") : c.add("flipped");
-    }
-
+        c.contains('flipped') === true ? c.remove('flipped') : c.add('flipped');
+  }
   getShirts(): void {
         this.shirtService.allShirts()
                          .subscribe(
@@ -43,7 +42,7 @@ export class ShirtListComponent implements OnInit {
     this.adminService.checkAdmin()
                      .subscribe(
                        data => {
-                         if (data) {
+                         if (data.password) {
                            this.admin = true;
                          }
                        }

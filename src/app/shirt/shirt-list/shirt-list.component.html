@@ -7,13 +7,13 @@
 				<p>Size: {{shirt.size}}</p>
 			</div>
 			<div class="card__back">
-				<h3>{{shirt.name}}</h3>
-         		<p>Size: {{shirt.size}}</p>
-				 <h6>$100</h6>
-				<button>Purchase</button>
-         		<button *ngIf="admin" (click)="deleteShirt(shirt._id)">Delete Shirt</button>
+				 <h3>{{shirt.name}}</h3>
+         <p> Size: {{shirt.size}}</p>
+				 <h6> $100- </h6>
+				<button> Purchase </button>
+        <button *ngIf="admin" (click)="deleteShirt(shirt._id)">Delete Shirt</button>
 			</div>	 
-  </article>
+      </article>
   </section>
 </main>
 

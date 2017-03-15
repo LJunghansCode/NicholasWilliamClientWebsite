@@ -7,13 +7,12 @@ const saltRounds = 10;
 module.exports = (function(){
 	return{
         adminLogin: (req, res) => {
-            console.log('here')
             admin.findOne({password: req.body.hash}, (err, data) => {
                 if(data){
                   req.session.admin = data;
-                  res.json({admin:true});
+                  res.json({password: req.session.admin.password});
                 } else{
-                    res.json({notfound:true});
+                    res.json({password: false});
                 }
             });
         },

@@ -1,0 +1,10 @@
+.loginBoxWrapper {
+    float: right;
+}
+.loginBoxWrapper label {
+   display: inline-block;
+}
+.loginButton {
+    margin-left: 20px;
+    display: inline;
+}

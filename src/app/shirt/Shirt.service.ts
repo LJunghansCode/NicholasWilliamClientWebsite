@@ -62,8 +62,7 @@ export class ShirtService {
       return body.shirts || {};
   }
 
-
-private handleError (error: Response | any) {
+  private handleError (error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';

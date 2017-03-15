@@ -12,7 +12,7 @@ export class AdminService {
 
   constructor(private http: Http) {}
 
-  adminLogin(hash: string): Observable<Admin[]> {
+  adminLogin(hash: string): Observable<Admin> {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
     return this.http.post('api/adminLogin', {hash}, options)
@@ -25,7 +25,7 @@ export class AdminService {
       return body || {};
   }
 
-checkAdmin(): Observable<JSON> {
+checkAdmin(): Observable<Admin> {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
     return this.http.get('api/getAdmin')

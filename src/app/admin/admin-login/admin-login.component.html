@@ -1,5 +1,4 @@
-
+<article class="loginBoxWrapper">
  <label>Password: <input #adminHash /> </label> 
- <button (click)="adminLogin(adminHash.value); adminHash.value=''">Portal</button>
- <a routerLink="/newShirt">Newshirt</a>
- <a routerLink="/newStencil">New Stencil</a>
+ <button class="loginButton" (click)="adminLogin(adminHash.value); adminHash.value=''">Login</button>
+</article>
