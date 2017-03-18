@@ -21,7 +21,6 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { StencilGalleryComponent } from './stencil/stencil-gallery/stencil-gallery.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 
 const routes: Routes = [
   { path: 'store', component: ShirtListComponent},
@@ -29,7 +28,7 @@ const routes: Routes = [
   { path: 'newShirt', component: ShirtFormComponent },
   { path: 'newStencil', component: StencilFormComponent },
   { path: 'stencilGallery', component: StencilGalleryComponent },
-  { path: 'Admin', component: AdminHomeComponent },
+  { path: 'Admin', component: AdminLoginComponent },
   { path: '', redirectTo: 'store', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent }
 ];
@@ -45,8 +44,7 @@ const routes: Routes = [
     HomeComponent,
     SplashPageComponent,
     PagenotfoundComponent,
-    ContactFormComponent,
-    AdminHomeComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

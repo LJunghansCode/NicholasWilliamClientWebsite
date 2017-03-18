@@ -51,7 +51,6 @@ export class ShirtListComponent implements OnInit {
   getOneShirt(_id: number) {
     this.router.navigate(['Shirt', _id]);
   }
-
   openCheckout(shirtName: string) {
     const stripeHandler = (<any>window).StripeCheckout.configure({
               key: 'pk_test_M0DVyWNIScMrc5GlK5kzOojN',

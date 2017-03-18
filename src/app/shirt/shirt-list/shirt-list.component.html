@@ -10,7 +10,7 @@
 				 <h3>{{shirt.name}}</h3>
          <p> Size: {{shirt.size}}</p>
 				 <h6> $100- </h6>
-				 <button (click)="openCheckout(shirt.name)">Purchase</button>
+				<button (click)="openCheckout(shirt.name)">Purchase</button>
         <button *ngIf="admin" (click)="deleteShirt(shirt._id)">Delete Shirt</button>
 			</div>	 
       </article>
