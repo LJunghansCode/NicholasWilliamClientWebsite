@@ -7,32 +7,9 @@ import {Router, Routes} from '@angular/router';
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css']
 })
-export class AdminLoginComponent implements OnInit {
+export class AdminLoginComponent {
   loggedIn: boolean;
   constructor(private adminService: AdminService, private router: Router) { }
-
-  ngOnInit() {
-    this.adminCheck((data) => {
-      if (!data.password) {
-        this.redirectStore();
-      } else {
-        console.log(data);
-      }
-    });
-
-  }
-
-  adminCheck(callback) {
-    this.adminService.checkAdmin()
-                     .subscribe(admin => {
-                          if (admin) {
-                            callback(admin);
-                           }
-                    }, error => {
-                      console.log(error);
-                      });
-
-  }
   adminLogin(hash: string) {
     this.adminService.adminLogin(hash)
                       .subscribe(

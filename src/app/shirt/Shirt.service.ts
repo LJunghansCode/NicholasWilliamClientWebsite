@@ -10,42 +10,40 @@ import { Shirt } from './shirt';
 @Injectable()
 export class ShirtService {
   public allshirtsurl = 'api/allShirts';
+  headers = new Headers({'Content-Type': 'application/json'});
+  options = new RequestOptions({ headers: this.headers });
   constructor(private http: Http) {}
 
   newShirt(shirtForm: FormData): Observable<Shirt> {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({ headers: headers });
-    return this.http.post('api/newShirt', {shirtForm}, options)
+    return this.http.post('api/newShirt', {shirtForm}, this.options)
                     .map(this.processShirt)
                     .catch(this.handleError);
   }
   imageUpload(file: File): Observable<String> {
-    console.log(file);
     return this.http.post('api/shirtImage', file)
                     .map(this.processData)
                     .catch(this.handleError);
   }
   allShirts(): Observable<Shirt[]> {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({ headers: headers });
-      return this.http.post(this.allshirtsurl, options)
+      return this.http.post(this.allshirtsurl, this.options)
                        .map(this.allShirtsExtractor)
                        .catch(this.handleError);
   }
 
   deleteShirt (id: number): Observable<Shirt>  {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({ headers: headers });
-    return this.http.post('api/removeShirt', {id}, options)
+    return this.http.post('api/removeShirt', {id}, this.options)
                     .map(this.processShirt)
                     .catch(this.handleError);
   }
 
   oneShirt(id: number): Observable<Shirt> {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({ headers: headers });
-    return this.http.post('api/oneShirt', {id}, options)
+    return this.http.post('api/oneShirt', {id}, this.options)
                     .map(this.processData);
+  }
+  newOrder(token: JSON): Observable<JSON> {
+    return this.http.post('api/newOrder', {token}, this.options)
+                    .map(this.processData)
+                    .catch(this.handleError);
   }
 
  private processData(res: Response) {

@@ -1,7 +1,9 @@
 <main class=" homeWrapper container">
 <header class="row TitleContainer">
 <img src="./../../img/nwlogo.svg" alt="Nicholas William">
-<nav class="mainNav">
+
+<nav class="one-whole column mainNav">
+
     <ul class="bracketAnimList">
         <li> <a routerLink="store">Store Home</a> </li> 
         <li> <a routerLink="stencilGallery">Stencil Gallery</a> </li>
@@ -12,7 +14,7 @@
 <router-outlet></router-outlet>
 </main>
 <footer class="footerContainer row">
-  <article class="one-half column">
+  <article class="seven columns">
     <ul class="bracketAnimList">
      <a href="/store"> <img class="footerLogo" src="./img/nwlogoWhite.svg" alt="Nicholas William"> </a>
       <li><a href="/store">Store Home</a></li>
@@ -20,5 +22,5 @@
       <li><a (click)="toggleLoginBox()">Admin</a></li>
     </ul>
   </article>
-  <app-admin-login *ngIf="adminLoginToggle"></app-admin-login>
+  <app-admin-login class="four columns" *ngIf="adminLoginToggle"></app-admin-login>
 </footer>

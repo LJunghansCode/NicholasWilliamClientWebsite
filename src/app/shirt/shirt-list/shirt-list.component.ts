@@ -52,4 +52,37 @@ export class ShirtListComponent implements OnInit {
     this.router.navigate(['Shirt', _id]);
   }
 
+  openCheckout(shirtName: string) {
+    const stripeHandler = (<any>window).StripeCheckout.configure({
+              key: 'pk_test_M0DVyWNIScMrc5GlK5kzOojN',
+              name: shirtName,
+              description: 'A great Luxury Shirt',
+              locale: 'auto',
+              zipCode: true,
+              shippingAddress: true,
+              billingAddress: true,
+              panelLabel: 'Submit Payment',
+              allowRememberMe: false,
+              token: (token: any) => {
+              token.prodName = shirtName;
+                 this.shirtService.newOrder(token)
+                             .subscribe(
+                              (data) => {
+                                console.log(data);
+                              },
+                              (error) => {
+                                console.log(error);
+                              }
+                            );
+                          }
+    });
+
+    stripeHandler.open({
+      name: 'Nicholas William Clothing',
+      description: 'Luxury T-shirt',
+      amount: 10000
+    });
+
+  }
+
 }

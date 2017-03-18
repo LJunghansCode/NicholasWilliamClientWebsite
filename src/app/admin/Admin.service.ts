@@ -21,7 +21,6 @@ export class AdminService {
   }
   private processData(res: Response) {
       const body = res.json();
-      console.log(body);
       return body || {};
   }
 

@@ -3,6 +3,7 @@ const routes = express.Router();
 const adminController = require('./../controllers/adminController.js');
 const shirtController = require('./../controllers/shirtController.js');
 const stencilController = require('./../controllers/stencilController.js');
+const orderController = require('./../controllers/orderController.js');
 const multer = require('multer');
 var path = require('path');
 var storage = multer.diskStorage({
@@ -46,11 +47,14 @@ routes.post('/removeShirt', (req, res, next) => {
 routes.get('/getAdmin', (req, res, next) => {
         adminController.getAdmin(req, res);
 });
-routes.post("/upload", upload, function(req, res) {
+routes.post("/upload", upload, (req, res) => {
     shirtController.shirtImage(req, res);
 });
-routes.post("/uploadStencil", uploadStencil, function(req, res) {
+routes.post("/uploadStencil", uploadStencil, (req, res) => {
     stencilController.stencilImage(req, res);
+});
+routes.post("/newOrder", (req, res) => {
+    orderController.newOrder(req, res);
 });
 module.exports = routes;
 
