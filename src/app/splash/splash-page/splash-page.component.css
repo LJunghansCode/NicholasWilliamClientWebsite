@@ -1,8 +1,4 @@
-.splashPage {
-    margin: 0px auto;
-    max-width: 900px;
-    background-color: #303030;
-}
+
 .animationGroup {
     max-width: 900px;
     max-height: 500px;
@@ -18,7 +14,9 @@
   left: 0;
   right: 0;
 }
-
+#filledInLogo {
+    fill: #ffffff;
+}
 .enterLink {
     display: block;
     margin: 20px auto;

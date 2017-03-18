@@ -9,6 +9,6 @@ import { AppComponent } from './../../app.component';
 export class SplashPageComponent implements OnInit  {
   constructor() { }
   ngOnInit() {
-
+    document.body.style.backgroundColor = '#0e0e0e';
   }
 }

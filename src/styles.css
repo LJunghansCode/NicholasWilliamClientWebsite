@@ -5,20 +5,13 @@ html{
     min-height: 100%;
 }
 body{
-    background: #ffffff; /* Old browsers */
-    /*background: -webkit-linear-gradient(#ffffff 0%, #d3eefb 100%);
-    background: -moz-linear-gradient(#ffffff 0%, #d3eefb 100%);
-    background: -o-linear-gradient(#ffffff 0%, #d3eefb 100%);
-    background: linear-gradient(#ffffff 0%, #d3eefb 100%);  */
-    /*background-blend-mode: color-dodge;
-    color: black;*/
+    background: #ffffff; 
 }
-
 .homeWrapper {
     padding-bottom: 100px;
 }
 .footerContainer {
-    background-color: black;
+    background-color: #0e0e0e;
     left: 0;
     right: 0;
     bottom: 0;
@@ -41,6 +34,10 @@ body{
 .footerContainer article ul li {
     display: inline-block;
     color: white;
+}
+.footerLogo {
+    width: 100px;
+    height: 25px;
 }
 .bracketAnimList li a::before,
 .bracketAnimList li a::after {
